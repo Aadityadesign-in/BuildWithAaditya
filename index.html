@@ -1,274 +1,1349 @@
+
 <!DOCTYPE html>
-<html lang="hi" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Developer Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>BuildWithAaditya | Website Projects & Digital Creator</title>
+  <meta name="description" content="Explore BuildWithAaditya, my website projects, AI-assisted web development journey and website services for businesses and coaching institutes.">
+  <meta name="keywords" content="BuildWithAaditya, Aaditya portfolio, website design, business website, coaching website, UtilityBox India, UtsavSandesh">
+  <meta name="author" content="Aaditya">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b1020">
+  <meta property="og:title" content="BuildWithAaditya | Digital Projects">
+  <meta property="og:description" content="Explore my projects, website services and learning journey.">
+  <meta property="og:type" content="website">
+
+  <!-- Replace YOUR-USERNAME with your GitHub username -->
+  <link rel="canonical" href="https://YOUR-USERNAME.github.io/">
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/">
+
+  <!-- BA favicon -->
+ <link rel="icon" href="./profile 1.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1020;
+      --surface: #11182b;
+      --surface2: #171f35;
+      --text: #f4f6ff;
+      --muted: #a2acc4;
+      --line: rgba(255,255,255,.10);
+      --purple: #a395ff;
+      --cyan: #5bdcff;
+      --green: #69e3a3;
+      --radius: 20px;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+      transition: background .2s, color .2s;
+    }
+
+    body.light {
+      color-scheme: light;
+      --bg: #f5f7ff;
+      --surface: #fff;
+      --surface2: #edf0ff;
+      --text: #151a2b;
+      --muted: #606b83;
+      --line: rgba(20,30,60,.12);
+      --purple: #674fe8;
+      --cyan: #008ab7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+    img { max-width: 100%; display: block; }
+
+    a:focus-visible, button:focus-visible,
+    input:focus-visible, textarea:focus-visible,
+    select:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(var(--max-width), 91%);
+      margin-inline: auto;
+    }
+
+    .section { padding: 82px 0; }
+    .section-alt { background: var(--surface); }
+
+    h1, h2, h3, .brand {
+      font-family: "Space Grotesk", sans-serif;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 6.5vw, 5.2rem);
+      letter-spacing: -2.5px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      letter-spacing: -1px;
+    }
+
+    h3 { font-size: 1.2rem; }
+    p { color: var(--muted); }
+
+    .gradient {
+      color: var(--purple);
+      background: linear-gradient(105deg, var(--purple), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--cyan);
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: .76rem;
+      letter-spacing: 2px;
+    }
+
+    .section-head {
+      margin-bottom: 32px;
+      max-width: 720px;
+    }
+
+    .section-head p { margin-top: 12px; }
+
+    /* Navigation */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .brand span { color: var(--purple); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      font-size: .87rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+
+    .nav-actions { display: flex; gap: 9px; }
+
+    .icon-btn, .menu-btn {
+      width: 41px;
+      height: 41px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .menu-btn { display: none; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: .9rem;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      border-color: transparent;
+      color: #101225;
+      background: linear-gradient(110deg, var(--purple), var(--cyan));
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 45px;
+      align-items: center;
+      padding-top: 83px;
+      padding-bottom: 90px;
+      min-height: 610px;
+    }
+
+    .profile-photo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #22d3ee;
+  box-shadow: 0 0 25px #22d3ee55;
+}
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 99px;
+      padding: 7px 12px;
+      margin-bottom: 24px;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    .status-dot {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .hero h1 span { display: block; }
+
+    .hero-copy {
+      font-size: 1.02rem;
+      max-width: 580px;
+      margin: 22px 0 26px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .social-links a {
+      color: var(--muted);
+      font-size: .87rem;
+    }
+
+    .social-links a:hover { color: var(--cyan); }
+
+    .hero-art {
+      min-height: 390px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(163,149,255,.25), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(91,220,255,.16), transparent 45%),
+        var(--surface);
+    }
+
+    .orb {
+      height: 205px;
+      width: 205px;
+      border: 1px solid rgba(163,149,255,.6);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle, rgba(163,149,255,.18), transparent 70%);
+      position: relative;
+    }
+
+    .orb::before, .orb::after {
+      content: "";
+      position: absolute;
+      inset: -25px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+    }
+
+    .orb::after {
+      inset: -49px;
+      border-style: dashed;
+    }
+
+    .orb strong {
+      font: 700 4.2rem "Space Grotesk", sans-serif;
+    }
+
+    .float-card {
+      position: absolute;
+      border: 1px solid var(--line);
+      background: var(--surface2);
+      border-radius: 13px;
+      padding: 11px 13px;
+      font-size: .8rem;
+      font-weight: 700;
+      box-shadow: 0 12px 35px rgba(0,0,0,.14);
+    }
+
+    .float-card small {
+      display: block;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .float-a { top: 25px; left: 18px; }
+    .float-b { bottom: 25px; right: 15px; }
+    .float-c { top: 47%; right: 12px; }
+
+    /* Panels and About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 27px;
+    }
+
+    .panel p + p { margin-top: 13px; }
+    .panel h3 { margin-bottom: 13px; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      font-size: .78rem;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface2);
+      color: var(--muted);
+    }
+
+    /* Projects */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 24px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 10px;
+      padding: 9px 14px;
+    }
+
+    .filter-btn.active {
+      background: var(--purple);
+      color: #fff;
+      border-color: var(--purple);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 23px;
+      display: flex;
+      flex-direction: column;
+      min-height: 310px;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--purple);
+    }
+
+    .project-icon {
+      height: 49px;
+      width: 49px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(163,149,255,.22), rgba(91,220,255,.15));
+      font-size: 1.45rem;
+      margin-bottom: 17px;
+    }
+
+    .project-card p {
+      margin: 11px 0 16px;
+      font-size: .89rem;
+      flex: 1;
+    }
+
+    .project-status {
+      font-size: .75rem;
+      color: var(--cyan);
+      margin-bottom: 13px;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .text-link {
+      color: var(--cyan);
+      font-size: .84rem;
+      font-weight: 700;
+    }
+
+    .text-link:hover { text-decoration: underline; }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .service-icon {
+      font-size: 1.7rem;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      font-size: .9rem;
+      margin: 11px 0 16px;
+    }
+
+    .service-card ul {
+      padding-left: 19px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .service-card li { margin: 6px 0; }
+
+    .price-note {
+      padding: 19px 22px;
+      margin-top: 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      font-size: .9rem;
+    }
+
+    /* Process */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .process-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      background: var(--surface);
+    }
+
+    .step-number {
+      color: var(--cyan);
+      font-weight: 800;
+      font-size: .8rem;
+    }
+
+    .process-card h3 {
+      margin: 10px 0;
+      font-size: 1.05rem;
+    }
+
+    .process-card p { font-size: .84rem; }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 22px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 13px;
+      margin-top: 22px;
+    }
+
+    .contact-item {
+      border: 1px solid var(--line);
+      background: var(--surface2);
+      border-radius: 13px;
+      padding: 13px;
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: .85rem;
+    }
+
+    .contact-item span {
+      color: var(--muted);
+      font-size: .82rem;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-form { display: grid; gap: 14px; }
+
+    .contact-form label {
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      display: block;
+      width: 100%;
+      margin-top: 6px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 13px;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .contact-form textarea {
+      min-height: 125px;
+      resize: vertical;
+    }
+
+    .form-note { font-size: .77rem; }
+
+    .cta {
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      padding: 42px 24px;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(163,149,255,.18), transparent 45%),
+        var(--surface);
+    }
+
+    .cta p {
+      margin: 13px auto 23px;
+      max-width: 620px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    .back-top {
+      position: fixed;
+      right: 17px;
+      bottom: 17px;
+      z-index: 50;
+      width: 43px;
+      height: 43px;
+      border: 0;
+      border-radius: 13px;
+      color: #111;
+      background: var(--cyan);
+      display: none;
+    }
+
+    .back-top.show { display: block; }
+
+    @media (max-width: 900px) {
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: .8rem; }
+      .hero { gap: 25px; }
+      .projects-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 680px) {
+      .section { padding: 65px 0; }
+      .nav { min-height: 67px; }
+      .menu-btn { display: grid; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 67px;
+        left: 0;
+        right: 0;
+        padding: 15px 5%;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: .95rem; padding: 7px 0; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 55px;
+        min-height: auto;
+      }
+
+      h1 { letter-spacing: -1.5px; }
+      .hero-art { min-height: 325px; }
+      .orb { transform: scale(.78); }
+      .float-a { top: 13px; left: 10px; }
+      .float-b { bottom: 13px; right: 8px; }
+      .float-c { right: 6px; }
+
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+
+      .projects-grid,
+      .services-grid,
+      .process-grid { grid-template-columns: 1fr; }
+
+      .project-card { min-height: 280px; }
+      .panel { padding: 21px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+    
+    .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.project-card {
+  min-width: 0;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card .project-links {
+  margin-top: auto;
+}
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 20px;
+}
+
+.project-card {
+  min-width: 0;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card .project-links {
+  margin-top: auto;
+}
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+  </style>
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
 
-    <!-- 1. NAVBAR -->
-    <nav class="fixed top-0 left-0 w-full bg-gray-950/80 backdrop-blur-md z-50 border-b border-gray-800/80">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-extrabold tracking-tight text-indigo-400">AADITYA_BUILDS<span class="text-white">.</span></a>
-            
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#home" class="hover:text-indigo-400 transition">Home</a>
-                <a href="#about" class="hover:text-indigo-400 transition">About</a>
-                <a href="#services" class="hover:text-indigo-400 transition">Services</a>
-                <a href="#projects" class="hover:text-indigo-400 transition">Portfolio</a>
-                <a href="#process" class="hover:text-indigo-400 transition">Process</a>
-                <a href="#contact" class="hover:text-indigo-400 transition">Contact</a>
-            </div>
+<body>
+  <header class="header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home">BuildWith<span>Aaditya</span>.</a>
 
-            <!-- APNA WHATSAPP NUMBER YAHAN REPLACE KAREIN (e.g. 919876543210) -->
-            <a href="https://wa.me/919135766040?text=Hello%2c%20I%20want%20a%20website!" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition flex items-center gap-2 shadow-lg shadow-emerald-900/20">
-                <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
-            </a>
-        </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Switch to light theme" title="Toggle theme">☀</button>
+        <button class="menu-btn" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
     </nav>
+  </header>
 
-    <!-- 2. HERO SECTION -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-28 pb-16 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6 text-center md:text-left">
-                <span class="text-indigo-400 font-semibold tracking-wide uppercase text-xs bg-indigo-950/80 border border-indigo-800 px-3 py-1.5 rounded-full inline-block">
-                    ⚡ Professional Web Developer
-                </span>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
-                    Main Aapke Business Ke Liye <span class="text-indigo-400">Fast Websites</span> Banata Hu.
-                </h1>
-                <p class="text-gray-400 text-base sm:text-lg max-w-xl mx-auto md:mx-0">
-                    School, Coaching, Restaurant, Salon aur Business websites setup, custom design aur Hostinger/GoDaddy par complete live hosting.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-4">
-                    <a href="#projects" class="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-3.5 rounded-xl font-semibold transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-900/30">
-                        Mere Projects Dekhein <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </a>
-                    <!-- APNA WHATSAPP NUMBER YAHAN REPLACE KAREIN -->
-                    <a href="https://wa.me/919135766040?text=Hello%2c%20mujhe%20website%20banwani%20hai." target="_blank" class="border border-emerald-600/60 hover:bg-emerald-950/50 text-emerald-300 px-8 py-3.5 rounded-xl font-semibold transition flex items-center justify-center gap-2">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i> Direct Message
-                    </a>
-                </div>
-            </div>
-
-            <div class="relative">
-                <div class="absolute inset-0 bg-indigo-600/20 rounded-3xl blur-3xl"></div>
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" 
-                     alt="Web Development Workspace" 
-                     class="relative w-full rounded-2xl border border-gray-800 shadow-2xl object-cover h-[350px] sm:h-[420px]">
-            </div>
+  <main>
+    <!-- HERO -->
+    <section class="hero container" id="home">
+      <div>
+        <div class="status">
+          <span class="status-dot"></span>
+          Learning, building and improving
         </div>
+
+        <span class="eyebrow">Web Development · Digital Projects</span>
+
+        <h1>Ideas into <span class="gradient">digital reality.</span></h1>
+
+        <p class="hero-copy">
+          Hi, I'm Aaditya. I'm a student and aspiring digital creator who uses
+          AI-assisted tools to build useful websites, explore new ideas and
+          improve through practical projects.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">Explore My Work ↗</a>
+          <a href="#contact" class="btn btn-secondary">Discuss a Project</a>
+        </div>
+
+        <div class="social-links">
+          <a id="whatsappLink" href="#contact">WhatsApp ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="BuildWithAaditya initials illustration">
+        <div class="float-card float-a">✦ Web Development<small>Ideas become projects</small></div>
+        <img
+  src="profile.jpg"
+  alt="Aaditya - Web Developer"
+  class="profile-photo"
+>
+        <div class="float-card float-c">HTML · CSS · JS</div>
+        <div class="float-card float-b">⌘ Keep Building<small>Learn by doing</small></div>
+      </div>
     </section>
 
-    <!-- 3. ABOUT ME SECTION -->
-    <section id="about" class="py-20 bg-gray-900/50 border-y border-gray-800/80 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold">Mera <span class="text-indigo-400">Introduction</span></h2>
-                <p class="text-gray-400 mt-2 text-sm">Clean code, fast speed, aur hassle-free deployment.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 items-center bg-gray-900 border border-gray-800 p-8 rounded-3xl">
-                <div class="space-y-4">
-                    <h3 class="text-2xl font-bold">Main Kaise Kaam Karta Hu?</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Main VS Code me custom code karke responsive websites banata hu. Domain connection, SSL certificate setup, aur Hostinger/GoDaddy par website live deployment tak sab kaam complete karta hu.
-                    </p>
-                    <div class="pt-4 flex gap-4">
-                        <div class="p-4 bg-gray-950 border border-gray-800 rounded-xl text-center flex-1">
-                            <p class="text-2xl font-extrabold text-indigo-400">100%</p>
-                            <p class="text-xs text-gray-400 mt-1">Mobile Friendly</p>
-                        </div>
-                        <div class="p-4 bg-gray-950 border border-gray-800 rounded-xl text-center flex-1">
-                            <p class="text-2xl font-extrabold text-emerald-400">Hostinger</p>
-                            <p class="text-xs text-gray-400 mt-1">& GoDaddy Ready</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gray-950 p-6 rounded-2xl border border-gray-800 space-y-4">
-                    <h4 class="font-bold text-base text-gray-200">Skills & Tech Stack:</h4>
-                    <div class="flex flex-wrap gap-2.5">
-                        <span class="bg-indigo-950 text-indigo-300 border border-indigo-800/80 text-xs font-medium px-3.5 py-2 rounded-xl">HTML5</span>
-                        <span class="bg-indigo-950 text-indigo-300 border border-indigo-800/80 text-xs font-medium px-3.5 py-2 rounded-xl">CSS3</span>
-                        <span class="bg-indigo-950 text-indigo-300 border border-indigo-800/80 text-xs font-medium px-3.5 py-2 rounded-xl">JavaScript</span>
-                        <span class="bg-indigo-950 text-indigo-300 border border-indigo-800/80 text-xs font-medium px-3.5 py-2 rounded-xl">Tailwind CSS</span>
-                        <span class="bg-indigo-950 text-indigo-300 border border-indigo-800/80 text-xs font-medium px-3.5 py-2 rounded-xl">Hostinger Hosting</span>
-                        <span class="bg-indigo-950 text-indigo-300 border border-indigo-800/80 text-xs font-medium px-3.5 py-2 rounded-xl">GoDaddy Hosting</span>
-                        <span class="bg-indigo-950 text-indigo-300 border border-indigo-800/80 text-xs font-medium px-3.5 py-2 rounded-xl">VS Code</span>
-                    </div>
-                </div>
-            </div>
+    <!-- ABOUT -->
+    <section class="section section-alt" id="about">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">About me</span>
+          <h2>A little about my <span class="gradient">journey.</span></h2>
+          <p>I'm building my skills one project at a time.</p>
         </div>
+
+        <div class="about-grid">
+          <article class="panel">
+            <h3>My Story</h3>
+            <p>
+              I'm Aaditya, a student and aspiring digital creator. I use
+              AI-assisted tools to turn ideas into practical, responsive
+              websites and digital projects.
+            </p>
+            <p>
+              I'm learning through hands-on projects, testing website features
+              and improving my design and problem-solving skills. This portfolio
+              showcases my journey, projects and services.
+            </p>
+          </article>
+
+          <article class="panel">
+            <h3>What I'm learning</h3>
+            <p>
+              My focus is on responsive interfaces, HTML, CSS, JavaScript,
+              publishing static websites and making projects easier to use.
+              I'll update this section as I learn and build more.
+            </p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Responsive Design</span>
+              <span class="tag">GitHub Pages</span>
+              <span class="tag">SEO Basics</span>
+              <span class="tag">AI-assisted building</span>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- 4. SERVICES SECTION -->
-    <section id="services" class="py-20 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold">Meri <span class="text-indigo-400">Services</span></h2>
-                <p class="text-gray-400 mt-2 text-sm">Har business ke hisaab se customized solutions.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl hover:border-indigo-500/50 transition duration-300">
-                    <i data-lucide="graduation-cap" class="w-10 h-10 text-indigo-400 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-3">School & Coaching Sites</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Admission details, courses List, inquiry forms, aur contact info ke saath custom website.</p>
-                </div>
-                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl hover:border-indigo-500/50 transition duration-300">
-                    <i data-lucide="utensils" class="w-10 h-10 text-indigo-400 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-3">Restaurant & Salon Sites</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Menu showcase, services list, location, aur WhatsApp booking feature.</p>
-                </div>
-                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl hover:border-indigo-500/50 transition duration-300">
-                    <i data-lucide="server" class="w-10 h-10 text-indigo-400 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-3">Hosting & Domain Launch</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Hostinger aur GoDaddy par domain connect karke website live launch karna.</p>
-                </div>
-            </div>
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Selected work</span>
+          <h2>Projects I'm <span class="gradient">building.</span></h2>
+          <p>Explore my digital ideas and website projects.</p>
         </div>
+
+        <div class="filters" aria-label="Filter projects">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="web">Websites</button>
+          <button class="filter-btn" data-filter="tool">Tools</button>
+          <button class="filter-btn" data-filter="education">Education</button>
+          <button class="filter-btn" data-filter="business">Business</button>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card" data-category="tool">
+            <div class="project-icon">🧰</div>
+            <div class="project-status">Digital Tools</div>
+            <h3>UtilityBox India</h3>
+            <p>A collection of useful online tools designed to make everyday digital tasks easier.</p>
+            <div class="tags">
+              <span class="tag">Tools</span>
+              <span class="tag">Web</span>
+            </div>
+            <div class="project-links">
+              <a class="text-link project-url" href="https://aadityadesign-in.github.io/UtilityBox-India/" data-project="UtilityBox India">View Project ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web">
+            <div class="project-icon">🎉</div>
+            <div class="project-status">Festival Website</div>
+            <h3>UtsavSandesh</h3>
+            <p>A festival wishes and quotes website designed to make sharing greetings simple.</p>
+            <div class="tags">
+              <span class="tag">Content</span>
+              <span class="tag">SEO</span>
+            </div>
+            <div class="project-links">
+              <a class="text-link project-url" href="https://aadityadesign-in.github.io/UtsavSandesh" target="_blank" data-project="UtsavSandesh">View Project ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="tool">
+            <div class="project-icon">🤖</div>
+            <div class="project-status">AI Directory</div>
+            <h3>AI Tools Hub</h3>
+            <p>A planned directory to organise AI tools by category, features and use case.</p>
+            <div class="tags">
+              <span class="tag">AI</span>
+              <span class="tag">Directory</span>
+            </div>
+            <div class="project-links">
+              <a class="text-link project-url" href="https://aadityadesign-in.github.io/AI-Tools-Hub/" target="_blank" data-project="AI Tools Hub">View Project ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="education">
+            <div class="project-icon">📚</div>
+            <div class="project-status">Education</div>
+            <h3>Coaching Websites</h3>
+            <p>Website projects for coaching institutes, courses, notices and admission enquiries.</p>
+            <div class="tags">
+              <span class="tag">Education</span>
+              <span class="tag">Responsive</span>
+            </div>
+            <div class="project-links">
+              <a class="text-link project-url" href=" https://aadityadesign-in.github.io/mentorclasses/" target="_blank" data-project="Coaching Websites">View Project ↗</a>
+              <a class="text-link project-url" href="https://aadityadesign-in.github.io/NoDoubts-English-Classes/" target="_blank" data-project="Coaching Websites">View Project ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="education">
+            <div class="project-icon">🎓</div>
+            <div class="project-status">Learning Project</div>
+            <h3>Smart Study Bot</h3>
+            <p>A study-bot concept for quizzes, simple explanations and learning support.</p>
+            <div class="tags">
+              <span class="tag">Study</span>
+              <span class="tag">Bot</span>
+            </div>
+            <div class="project-links">
+              <a class="text-link project-url" href="#" target="_blank" data-project="Smart Study Bot">View Project ↗</a>
+            </div>
+          </article>
+
+          <!-- Coffee Shop Website -->
+<article class="project-card" data-category="business">
+  <div class="project-icon">☕</div>
+  <div class="project-status">Demo Project</div>
+  <h3>Coffee Shop Website</h3>
+  <p>A modern coffee shop website featuring a menu, popular drinks, opening hours, location and WhatsApp ordering.</p>
+  <div class="tags">
+    <span class="tag">Coffee Shop</span>
+    <span class="tag">Menu</span>
+    <span class="tag">Responsive</span>
+  </div>
+  <div class="project-links">
+    <a class="text-link project-url" href=" https://aadityadesign-in.github.io/Coffee/" target="_blank" rel="noopener noreferrer" data-project="Coffee Shop Website">View Project ↗</a>
+  </div>
+</article>
+
+<!-- Gym Website -->
+<article class="project-card" data-category="business">
+  <div class="project-icon">💪</div>
+  <div class="project-status">Demo Project</div>
+  <h3>Gym & Fitness Website</h3>
+  <p>A fitness website with membership plans, trainer profiles, workout programs, gym timings and enquiry options.</p>
+  <div class="tags">
+    <span class="tag">Fitness</span>
+    <span class="tag">Membership</span>
+    <span class="tag">Enquiry</span>
+  </div>
+  <div class="project-links">
+    <a class="text-link project-url" href=" https://aadityadesign-in.github.io/IRON-PLUSE/" target="_blank" rel="noopener noreferrer" data-project="Gym & Fitness Website">View Project ↗</a>
+  </div>
+</article>
+
+<!-- Restaurant Website -->
+<article class="project-card" data-category="business">
+  <div class="project-icon">🍽️</div>
+  <div class="project-status">Demo Project</div>
+  <h3>Restaurant Website</h3>
+  <p>A stylish restaurant website with food menus, special dishes, opening hours, location and table-booking enquiries.</p>
+  <div class="tags">
+    <span class="tag">Restaurant</span>
+    <span class="tag">Food Menu</span>
+    <span class="tag">Booking</span>
+  </div>
+  <div class="project-links">
+    <a class="text-link project-url" href=" https://aadityadesign-in.github.io/masterart/" target="_blank" rel="noopener noreferrer" data-project="Restaurant Website">View Project ↗</a>
+    <a class="text-link project-url" href=" https://aadityadesign-in.github.io/TRIBE-KITCHEN/" target="_blank" rel="noopener noreferrer" data-project="Restaurant Website">View Project ↗</a>
+  </div>
+ 
+</article>
+
+<!-- Salon Website -->
+<article class="project-card" data-category="business">
+  <div class="project-icon">✂️</div>
+  <div class="project-status">Demo Project</div>
+  <h3>Salon & Beauty Website</h3>
+  <p>A professional salon website showcasing services, pricing, hairstyle galleries, business hours and appointment enquiries.</p>
+  <div class="tags">
+    <span class="tag">Salon</span>
+    <span class="tag">Beauty</span>
+    <span class="tag">Appointments</span>
+  </div>
+  <div class="project-links">
+    <a class="text-link project-url" href="https://aadityadesign-in.github.io/Salon/" target="_blank" rel="noopener noreferrer" data-project="Salon & Beauty Website">View Project ↗</a>
+  </div>
+</article>
+
+<!-- Doctor / Clinic Website -->
+<article class="project-card" data-category="business">
+  <div class="project-icon">🩺</div>
+  <div class="project-status">Demo Project</div>
+  <h3>Doctor & Clinic Website</h3>
+  <p>A clean clinic website with doctor profiles, available services, clinic timings, location and appointment enquiries.</p>
+  <div class="tags">
+    <span class="tag">Healthcare</span>
+    <span class="tag">Clinic</span>
+    <span class="tag">Appointments</span>
+  </div>
+  <div class="project-links">
+    <a class="text-link project-url" href="https://aadityadesign-in.github.io/Gandhi-Physiotherapy-Center/" target="_blank" rel="noopener noreferrer" data-project="Doctor & Clinic Website">View Project ↗</a>
+    <a class="text-link project-url" href="https://aadityadesign-in.github.io/Mother-s-Care-Poly-Clinic/" target="_blank" rel="noopener noreferrer" data-project="Doctor & Clinic Website">View Project ↗</a>
+  </div>
+</article>
+        </div>
+      </div>
     </section>
 
-    <!-- 5. PORTFOLIO / PROJECTS SHOWCASE -->
-    <section id="projects" class="py-20 bg-gray-900/50 border-y border-gray-800/80 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold">Featured <span class="text-indigo-400">Demo Projects</span></h2>
-                <p class="text-gray-400 mt-2 text-sm">Niche diye gaye demo websites ke live links click karke dekhein.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                
-                <!-- PROJECT CARD 1: RESTAURANT -->
-                <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-indigo-500/60 transition duration-300 flex flex-col">
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Restaurant Site" class="h-48 w-full object-cover">
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Restaurant Website</h3>
-                            <p class="text-gray-400 text-sm mt-2">Food menu showcase aur WhatsApp order feature ke saath.</p>
-                        </div>
-                        <!-- AAPKI LIVE DEMO SITE KA LINK YAHAN DALEIN -->
-                        <a href="https://aadityadesign-in.github.io/masterart/" target="_blank" class="mt-6 inline-flex items-center gap-2 text-indigo-400 font-semibold text-sm hover:underline">
-                            Live Demo <i data-lucide="external-link" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PROJECT CARD 2: SCHOOL / COACHING -->
-                <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-indigo-500/60 transition duration-300 flex flex-col">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="School Coaching Site" class="h-48 w-full object-cover">
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold text-white">School & Coaching Site</h3>
-                            <p class="text-gray-400 text-sm mt-2">Admission form, course list aur gallery section ke saath.</p>
-                        </div>
-                        <!-- AAPKI LIVE DEMO SITE KA LINK YAHAN DALEIN -->
-                        <a href="https://aadityadesign-in.github.io/mentorclasses/" target="_blank" class="mt-6 inline-flex items-center gap-2 text-indigo-400 font-semibold text-sm hover:underline">
-                            Live Demo <i data-lucide="external-link" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- PROJECT CARD 3: SALON / BUSINESS -->
-                <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:border-indigo-500/60 transition duration-300 flex flex-col">
-                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="Salon Business Site" class="h-48 w-full object-cover">
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Salon & Business Site</h3>
-                            <p class="text-gray-400 text-sm mt-2">Services menu, pricing, aur direct appointment contact setup.</p>
-                        </div>
-                        <!-- AAPKI LIVE DEMO SITE KA LINK YAHAN DALEIN -->
-                        <a href="https://aadityadesign-in.github.io/Salon/" target="_blank" class="mt-6 inline-flex items-center gap-2 text-indigo-400 font-semibold text-sm hover:underline">
-                            Live Demo <i data-lucide="external-link" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
+    <!-- SERVICES -->
+    <section class="section section-alt" id="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">What I can help with</span>
+          <h2>Website <span class="gradient">services.</span></h2>
+          <p>Discuss your requirements first so the scope and cost can be agreed clearly.</p>
         </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3>Business Websites</h3>
+            <p>A responsive online presence for a small business or local service.</p>
+            <ul>
+              <li>Business information</li>
+              <li>Services and contact details</li>
+              <li>Mobile-friendly layout</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">📚</div>
+            <h3>Coaching Websites</h3>
+            <p>Websites for coaching centres and educational institutes.</p>
+            <ul>
+              <li>Courses and batch details</li>
+              <li>Notices and announcements</li>
+              <li>Admission enquiry options</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🛠️</div>
+            <h3>Landing Pages & Updates</h3>
+            <p>Focused pages and improvements for existing websites.</p>
+            <ul>
+              <li>Landing page design</li>
+              <li>Responsive layout fixes</li>
+              <li>Basic on-page SEO setup</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="price-note">
+          <strong>Project pricing</strong>
+          <p>
+            Share your requirements to receive a suitable quote. Domain, hosting,
+            paid tools, advanced integrations and ongoing maintenance may cost extra.
+            Deliverables and timeline will be agreed before work begins.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <!-- 6. WORK PROCESS -->
-    <section id="process" class="py-20 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold">Mera <span class="text-indigo-400">Work Process</span></h2>
-                <p class="text-gray-400 mt-2 text-sm">3 steps me aapki website live ho jaati hai.</p>
-            </div>
-
-            <div class="space-y-6">
-                <div class="flex gap-6 p-6 bg-gray-900 border border-gray-800 rounded-2xl">
-                    <div class="w-12 h-12 bg-indigo-950 text-indigo-400 border border-indigo-800/80 rounded-xl flex items-center justify-center font-bold text-xl shrink-0">1</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white">Requirements Discussion</h3>
-                        <p class="text-gray-400 text-sm mt-1">Aapki business details aur photos WhatsApp par collect ki jaati hain.</p>
-                    </div>
-                </div>
-                <div class="flex gap-6 p-6 bg-gray-900 border border-gray-800 rounded-2xl">
-                    <div class="w-12 h-12 bg-indigo-950 text-indigo-400 border border-indigo-800/80 rounded-xl flex items-center justify-center font-bold text-xl shrink-0">2</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white">VS Code Development</h3>
-                        <p class="text-gray-400 text-sm mt-1">Fast, clean code aur fully mobile-responsive design ready kiya jata hai.</p>
-                    </div>
-                </div>
-                <div class="flex gap-6 p-6 bg-gray-900 border border-gray-800 rounded-2xl">
-                    <div class="w-12 h-12 bg-indigo-950 text-indigo-400 border border-indigo-800/80 rounded-xl flex items-center justify-center font-bold text-xl shrink-0">3</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white">Hostinger / GoDaddy Hosting</h3>
-                        <p class="text-gray-400 text-sm mt-1">Domain & hosting setup karke website ko successfully internet par live launch kiya jata hai.</p>
-                    </div>
-                </div>
-            </div>
+    <!-- HOW IT WORKS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Simple process</span>
+          <h2>From idea to <span class="gradient">website.</span></h2>
+          <p>A straightforward process to understand your needs and agree on the work.</p>
         </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <span class="step-number">STEP 01</span>
+            <h3>Discuss</h3>
+            <p>Tell me about your business, goals and required features.</p>
+          </article>
+          <article class="process-card">
+            <span class="step-number">STEP 02</span>
+            <h3>Plan</h3>
+            <p>Agree on the design, features, budget and delivery timeline.</p>
+          </article>
+          <article class="process-card">
+            <span class="step-number">STEP 03</span>
+            <h3>Build</h3>
+            <p>Build the agreed website and review it together.</p>
+          </article>
+          <article class="process-card">
+            <span class="step-number">STEP 04</span>
+            <h3>Publish</h3>
+            <p>Test the website and arrange deployment using the agreed hosting.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- 7. CONTACT SECTION -->
-    <section id="contact" class="py-20 bg-gray-900/50 border-t border-gray-800/80 px-6">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold">Mujhse <span class="text-indigo-400">Contact Karein</span></h2>
-                <p class="text-gray-400 mt-2 text-sm">Direct WhatsApp message karein ya form fill karein.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Fast WhatsApp Chat</h3>
-                        <p class="text-gray-400 text-sm mb-6">Website banwane ke silsile me baat karne ke liye niche button par click karein.</p>
-                    </div>
-                    <!-- APNA WHATSAPP NUMBER YAHAN REPLACE KAREIN -->
-                    <a href="https://wa.me/919135766040\?text=Namaste%20Ji%2c%20mujhe%20website%20banwani%20hai." target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-4 rounded-xl flex items-center justify-center gap-2 font-bold transition shadow-lg shadow-emerald-900/20">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i> Open WhatsApp Chat
-                    </a>
-                </div>
-
-                <form class="bg-gray-900 border border-gray-800 p-8 rounded-2xl space-y-4">
-                    <h3 class="text-xl font-bold mb-2 text-white">Message Bhejein</h3>
-                    <input type="text" placeholder="Aapka Naam" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 transition">
-                    <input type="text" placeholder="Phone Number / Email" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 transition">
-                    <textarea rows="3" placeholder="Kis type ki website chahiye (e.g. School, Salon, Restaurant)..." class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 transition"></textarea>
-                    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3.5 rounded-xl transition shadow-lg shadow-indigo-900/30">Submit Message</button>
-                     <a href="https://wa.me/919135766040\?text=Namaste%20Ji%2c%20mujhe%20website%20banwani%20hai." target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-4 rounded-xl flex items-center justify-center gap-2 font-bold transition shadow-lg shadow-emerald-900/20">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i> Open WhatsApp Chat
-                    </a>
-                </form>
-            </div>
+    <!-- CONTACT -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Contact me</span>
+          <h2>Have a website <span class="gradient">idea?</span></h2>
+          <p>Send the project details and let's discuss what you need.</p>
         </div>
+
+        <div class="contact-grid">
+          <div class="panel">
+            <h3>Let's connect</h3>
+            <p>
+              Whether you need a business website, a coaching website or a simple
+              landing page, start by sharing your idea and requirements.
+            </p>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <strong>WhatsApp</strong>
+                <span>Quick project discussion</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <form class="contact-form" id="contactForm">
+              <label for="name">Your name
+                <input id="name" name="name" type="text" maxlength="80" placeholder="Enter your name" required>
+              </label>
+
+              <label for="service">What do you need?
+                <select id="service" name="service" required>
+                  <option value="">Choose a service</option>
+                  <option>Business Website</option>
+                  <option>Coaching Website</option>
+                  <option>Landing Page</option>
+                  <option>Website Update</option>
+                  <option>Other Project</option>
+                </select>
+              </label>
+
+              <label for="message">Project details
+                <textarea id="message" name="message" maxlength="2000" placeholder="Describe your website idea, required pages and features..." required></textarea>
+              </label>
+
+              <button class="btn btn-primary" type="submit">Send Enquiry ↗</button>
+
+              <p class="form-note">
+                This form opens WhatsApp with a prepared message. You can review it
+                before sending. It does not store your information on this website.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="py-6 border-t border-gray-800/80 text-center text-gray-500 text-xs">
-        <p>© 2026 AADITYA_BUILDS. Professional Web Developer.</p>
-    </footer>
+    <!-- CALL TO ACTION -->
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <span class="eyebrow">Let's build something useful</span>
+          <h2>Your idea could be <span class="gradient">the next project.</span></h2>
+          <p>Share your requirements, and we can discuss the next steps for your website.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">Discuss Your Project ↗</a>
+            <a href="#projects" class="btn btn-secondary">View Projects</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <script>
-        lucide.createIcons();
-    </script>
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> BuildWithAaditya. Built with care.</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <script>
+    /*
+      IMPORTANT:
+      Replace 91XXXXXXXXXX with your real WhatsApp number.
+      Example format: 919876543210
+      Do not add +, spaces or dashes.
+    */
+    const SITE_CONFIG = {
+      whatsapp: "919135766040"
+    };
+
+    const whatsappLink = document.getElementById("whatsappLink");
+
+    if (/^91\d{10}$/.test(SITE_CONFIG.whatsapp)) {
+      whatsappLink.href = "https://wa.me/" + SITE_CONFIG.whatsapp;
+      whatsappLink.target = "_blank";
+      whatsappLink.rel = "noopener noreferrer";
+    } else {
+      whatsappLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        alert("Please add your real WhatsApp number in SITE_CONFIG at the bottom of index.html.");
+      });
+    }
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Dark / light theme
+    const themeToggle = document.getElementById("themeToggle");
+
+    themeToggle.addEventListener("click", function () {
+      const isLight = document.body.classList.toggle("light");
+      themeToggle.textContent = isLight ? "☾" : "☀";
+      themeToggle.setAttribute(
+        "aria-label",
+        isLight ? "Switch to dark theme" : "Switch to light theme"
+      );
+    });
+
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open menu");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Project filters
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        filterButtons.forEach(function (item) {
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+        const filter = button.dataset.filter;
+
+        projectCards.forEach(function (card) {
+          const matches =
+            filter === "all" || card.dataset.category === filter;
+
+          card.hidden = !matches;
+        });
+      });
+    });
+
+    // Warn when a project URL is still a placeholder
+    document.querySelectorAll(".project-url").forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        if (link.getAttribute("href") === "#") {
+          event.preventDefault();
+          alert(
+            "Add the published URL for " +
+            link.dataset.project +
+            " to this project card in index.html."
+          );
+        }
+      });
+    });
+
+    // Contact form: prepare a WhatsApp message
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const phone = SITE_CONFIG.whatsapp;
+
+      if (!/^91\d{10}$/.test(phone)) {
+        alert("Please add your real WhatsApp number in SITE_CONFIG at the bottom of index.html.");
+        return;
+      }
+
+      const name = document.getElementById("name").value.trim();
+      const service = document.getElementById("service").value;
+      const message = document.getElementById("message").value.trim();
+
+      const enquiry =
+        "Hello Aaditya! I am interested in discussing a website project.\n\n" +
+        "Name: " + name + "\n" +
+        "Service: " + service + "\n" +
+        "Project details: " + message;
+
+      const url =
+        "https://wa.me/" + phone +
+        "?text=" + encodeURIComponent(enquiry);
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+
+    // Back-to-top button
+    const backTop = document.getElementById("backTop");
+
+    window.addEventListener("scroll", function () {
+      backTop.classList.toggle("show", window.scrollY > 400);
+    }, { passive: true });
+
+    backTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
